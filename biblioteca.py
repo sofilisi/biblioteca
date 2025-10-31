@@ -25,7 +25,7 @@ def mostrar_catalogo():
     print()
 
 def consultar_disponibilidad():
-    busqueda = input("Ingrese el título a consultar: ")
+    busqueda = input("Ingrese el titulo a consultar: ")
     for i in range(contador):
         if titulos[i] == busqueda:
             print(f"'{titulos[i]}' tiene {ejemplares[i]} copias")
@@ -40,13 +40,13 @@ def listar_titulos_agotados():
             print(titulos[i])
             encontrados = True
     if not encontrados:
-        print("No hay titulos agotados")
+        print("No hay titulos agotados.")
     print()
 
 def agregar_nuevo_titulo():
     global contador
     if contador >= 20:
-        print("No se pueden agregar mas libros, se alcanzo el límite")
+        print("No se pueden agregar mas libros, se alcanzo el limite de 20")
         return
     titulo = input("Ingrese el nuevo titulo: ")
     cantidad = int(input(f"Ingrese la cantidad de ejemplares para '{titulo}': "))
@@ -61,21 +61,21 @@ def actualizar_ejemplares():
         if titulos[i] == titulo:
             cambio = int(input("Ingrese la cantidad a sumar (devolucion) o restar (prestamo): "))
             if ejemplares[i] + cambio < 0:
-                print("No se puede tener menos de 0 ejemplares")
+                print("No se puede tener menos de 0 ejemplares.\n")
                 return
             ejemplares[i] += cambio
-            print(f"Ejemplares actualizados Ahora '{titulos[i]}' tiene {ejemplares[i]} copias")
+            print(f"Ejemplares actualizados. Ahora '{titulos[i]}' tiene {ejemplares[i]} copias.\n")
             return
     print("El libro no se encuentra en el catálogo")
 
-# Menu 
+# Menu
 
 while True:
-    print("=== Menu Biblioteca ===")
+    print("=== Menú Biblioteca ===")
     print("1. Cargar títulos y ejemplares")
-    print("2. Mostrar catalogo completo")
+    print("2. Mostrar catálogo completo")
     print("3. Consultar disponibilidad")
-    print("4. Listar titulos agotados")
+    print("4. Listar títulos agotados")
     print("5. Agregar un nuevo título")
     print("6. Actualizar ejemplares (préstamo/devolución)")
     print("7. Salir")
@@ -98,4 +98,4 @@ while True:
         print("¡Hasta luego!")
         break
     else:
-        print("error, intente de nuevo")
+        print("Opción inválida, intente de nuevo")
